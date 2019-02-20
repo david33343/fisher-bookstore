@@ -2,12 +2,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Fisher.Bookstore.Models
 {
-    public class BookstoreContent : DbContext
+    public class BookstoreContext : DbContext
     {
-        public BookstoreContent(DbContextOptions<BookstoreContext> options)
+        public BookstoreContext(DbContextOptions<BookstoreContext> options)
             : base(options)
         {
         }
-        public DbSet<Book> Books { get; set;}
+        public DbSet<Book> Books { get; set; }
+    }
+
+    public class Book
+    {
     }
 }
