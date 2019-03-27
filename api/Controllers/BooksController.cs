@@ -41,7 +41,7 @@ namespace Fisher.Bookstore.Api.Controllers
                     Id = 3,
                     Title = "The DevOps Handbook",
                     Author = new Author(){
-                    Name = "Gene Kim"
+                    Name = "Gene Kim"   
                     },
                     ISBN = "978-1942788003"
                 });
