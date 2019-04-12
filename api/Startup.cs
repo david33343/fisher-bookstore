@@ -30,6 +30,15 @@ namespace Fisher.Bookstore.Api
             services.AddDbContext<Data.BookstoreContext>(options => 
             options.UseNpgsql(Configuration.GetConnectionString("BookstoreConnection")));
             services.AddMvc();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CosPolicy", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +55,7 @@ namespace Fisher.Bookstore.Api
             }
 
             app.UseHttpsRedirection();
+            app.UseCors("CosPolicy");
             app.UseMvc();
         }
     }
